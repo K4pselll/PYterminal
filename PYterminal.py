@@ -20,8 +20,8 @@ while True:
         print("echo [text] - Print the specified text")
         print("clear - Clear the terminal screen")
         print("version - Display the terminal version")
-        print("shudown - shutdown your system 'DISCLAIMER: NEEDS ADMIN PERMISSIONS'")
-        print("restart - restart your system 'DISCLAIMER: NEEDS ADMIN PERMISSIONS'")
+        print("shudown - shutdown your system")
+        print("restart - restart your system")
         print("---------------4FUN----------------")
         print("random - Generate a random number between your choice")
         print("RPG - opens a text based RPG minigame")
@@ -82,4 +82,5 @@ while True:
             elif action == "run":
                 print(f"{player_name} flees from the battle!")
                 break
+
 
