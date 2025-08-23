@@ -1,6 +1,7 @@
 import os
 import sys
 import random
+os.system('title PYterminal')
 print("PYterminal v1.0 PreRelease         Made by K4psell")
 print("Type 'help' for a list of commands or type 'exit' to quit.")
 user = username = os.getlogin()
@@ -82,5 +83,6 @@ while True:
             elif action == "run":
                 print(f"{player_name} flees from the battle!")
                 break
+
 
 
