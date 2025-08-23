@@ -1,2 +1,2 @@
 # PYterminal
-PYterminal is a python terminal that i made for fun
+PYterminal is a python project that i made for fun
