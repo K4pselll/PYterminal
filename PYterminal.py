@@ -26,7 +26,7 @@ while True:
         print("---------------4FUN----------------")
         print("random - Generate a random number between your choice")
         print("RPG - opens a text based RPG minigame")
-        print("Snake - opens a snake minigame")
+        print("Snake - Comming soon")
 
     if command == "exit":
         print("Exiting...")
@@ -83,6 +83,7 @@ while True:
             elif action == "run":
                 print(f"{player_name} flees from the battle!")
                 break
+
 
 
 
