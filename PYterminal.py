@@ -1,15 +1,26 @@
 import os
 import sys
 import random
+import time
+
+
+def typewrite(text, delay=0.05):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)  # The logic of commands
+
+
 os.system('title PYterminal')
-print("PYterminal v1.0 PreRelease         Made by K4psell")
+print("PYterminal v1.1 PreRelease         Made by K4psell")
 print("Type 'help' for a list of commands or type 'exit' to quit.")
 user = username = os.getlogin()
-print("Welcome back, " + user)
-# The logic of commands
+print("Welcome back, " + user + "!")
+
+
 while True:
     command = input(f"{user}@PYterminal:~$ ")
-    if command not in ["help", "exit", "echo", "clear", "version", "shutdown", "restart", "random", "RPG"] and not command.startswith("echo "):
+    if command not in ["help", "exit", "echo", "clear", "version", "shutdown", "restart", "random", "RPG", "calc", "sysinfo"] and not command.startswith("echo "):
         print(
             command + " is not recognized as a command. Type 'help' for a list of commands.")
 
@@ -21,12 +32,13 @@ while True:
         print("echo [text] - Print the specified text")
         print("clear - Clear the terminal screen")
         print("version - Display the terminal version")
-        print("shudown - shutdown your system")
-        print("restart - restart your system")
+        print("shudown - shutdown your system 'DISCLAIMER: NEEDS ADMIN PERMISSIONS'")
+        print("restart - restart your system 'DISCLAIMER: NEEDS ADMIN PERMISSIONS'")
+        print("Calc - opens an calculator")
+        print("sysinfo - shows info about your system")
         print("---------------4FUN----------------")
         print("random - Generate a random number between your choice")
         print("RPG - opens a text based RPG minigame")
-        print("Snake - Comming soon")
 
     if command == "exit":
         print("Exiting...")
@@ -47,6 +59,41 @@ while True:
                   'nt' else 'sudo shutdown now')
     if command == "restart":
         os.system('shutdown /r /t 1' if os.name == 'nt' else 'sudo reboot')
+    if command == "calc":
+        print("Calculator version 1.0 PreRelease")
+        try:
+            num1 = float(input("Enter first number: "))
+            operator = input("Enter operator (+, -, *, /): ")
+            num2 = float(input("Enter second number: "))
+
+            if operator == "+":
+                result = num1 + num2
+            elif operator == "-":
+                result = num1 - num2
+            elif operator == "*":
+                result = num1 * num2
+            elif operator == "/":
+                if num2 != 0:
+                    result = num1 / num2
+                else:
+                    print("Error: Division by zero!")
+                    continue
+            else:
+                print("Error: Invalid operator!")
+                continue
+
+            print(f"The result is: {result}")
+        except ValueError:
+            print("Error: Invalid input! Please enter numeric values.")
+    if command == "sysinfo":
+        print("System Information:")
+        print(f"Operating System: {os.name}")
+        print(f"User: {user}")
+        print(f"Python Version: {sys.version}")
+        print(f"Current Working Directory: {os.getcwd()}")
+        print(f"Processor: {os.environ.get('PROCESSOR_IDENTIFIER', 'N/A')}")
+        print(
+            f"Machine: {os.uname().machine if hasattr(os, 'uname') else 'N/A'}")
     if command == "RPG":
         print("RPG version 1.0 PreRelease")
         player_name = user
@@ -81,9 +128,5 @@ while True:
                     f"{enemy_name} attacks and deals {reduced_damage} damage to {player_name}!")
                 print(f"{player_name} has now {player_health} health left.")
             elif action == "run":
-                print(f"{player_name} flees from the battle!")
+                print(f"{player_name} runs away from the {enemy_name}!")
                 break
-
-
-
-
